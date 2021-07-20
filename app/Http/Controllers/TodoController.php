@@ -29,6 +29,12 @@ class TodoController extends Controller
            'title' => $request -> title,
            'body' => $request -> body,
        ]);
-       
+       return redirect()->back();
+    }
+
+    public function delete($id) {
+        $data = Todo::where('id' ,$id);
+        $data->delete();
+        return redirect()->back();
     }
 }

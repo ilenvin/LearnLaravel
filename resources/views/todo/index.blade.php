@@ -9,8 +9,10 @@
     </form>
 
     <ul>
-        @foreach($todo as $key => value) 
-            <li>{{$key}} : {{$value -> title}} - {{$value -> body}}</li>
+        @foreach($todo as $key => $value) 
+            <li>{{$key}} : {{$value -> title}} - {{$value -> body}}
+                <a href="{{ route('todo.delete', $value->id)}}">DELETE</a>
+            </li>
         @endforeach
     </ul>
 </div>
