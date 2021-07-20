@@ -37,4 +37,17 @@ class TodoController extends Controller
         $data->delete();
         return redirect()->back();
     }
+
+    public function update(Request $request) {
+        // $data = Todo::where('id' ,$request->id);
+        // $data->title = $request -> title;
+        // $data->body = $request -> body;
+        // $data->save();
+        Todo::where('id', $request->id)
+            ->update([
+                'title' => $request->title,
+                'body' => $request->body,
+            ]);
+        return redirect()->back();
+    }
 }

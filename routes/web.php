@@ -23,5 +23,6 @@ Route::get('/', function () {
 //});
 
 Route::get('/todo', [TodoController::class, 'index']);
-Route::get('/todo/submit', [TodoController::class, 'submit'])->name('todo.submit');
+Route::post('/todo/submit', [TodoController::class, 'submit'])->name('todo.submit');
 Route::get('/todo/delete/{id}', [TodoController::class, 'delete'])->name('todo.delete');
+Route::patch('/todo/update', [TodoController::class, 'update'])->name('todo.update');
