@@ -1,7 +1,9 @@
-<div>
+@extends('layout')
+@section('content')
+<div class="container">
     <h1>Todo {{$me}}</h1>
     <p>{{$hello}}</p>
-
+    <h3>{{iPrint('it is okay :)')}}</h3>
     <form method="POST" action="{{ route('todo.submit') }}">
         @csrf
         <input type="text" placeholder="Input title" name="title">

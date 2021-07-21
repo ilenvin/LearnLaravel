@@ -4,13 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Todo;
+use App\Traits\ResponseTrait;
 
 class TodoController extends Controller
 {
+    use ResponseTrait;
     public $me = "ni hao ei ";
     public $data = [];
      
     public function index() {
+        dd($this->jsonA());
+        //return $this->jsonB();
+        //return iPrint('it is okay :)');
         // $hello = $this->me;
         // $me = 'ei';
         // return view('todo.index', compact('hello', 'me'));
@@ -32,6 +37,9 @@ class TodoController extends Controller
        return redirect()->back();
     }
 
+    public function jsonB(){
+        return 'JSONB';
+    }
     public function delete($id) {
         $data = Todo::where('id' ,$id);
         $data->delete();
